@@ -5,9 +5,28 @@ output:
     keep_md: true
 ---
 
+## load required packages
+```{r}
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+```
 
 ## Loading and preprocessing the data
-
+=====================================
+* capture source file variable 
+* capture url and download the zip file, if not already exists.
+* unzip the source data and get the contents of the zip file.
+* create data frame with read to csv
+```{r FileAccess}
+  file <- "./data/activity_monitoring_data.zip"
+  if (!file.exists(file)){
+    url <- "https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip"  
+    download.file(url,file)  
+    }
+  unzip(file, exdir="./data")
+  data<- read.csv("./data/activity.csv")
+ ```
 
 
 ## What is mean total number of steps taken per day?
