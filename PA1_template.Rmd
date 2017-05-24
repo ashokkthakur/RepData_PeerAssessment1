@@ -13,7 +13,7 @@ library(tidyr)
 ```
 
 ## Loading and preprocessing the data
-=====================================
+## =====================================
 * capture source file variable 
 * capture url and download the zip file, if not already exists.
 * unzip the source data and get the contents of the zip file.
@@ -28,9 +28,22 @@ library(tidyr)
   data<- read.csv("./data/activity.csv")
  ```
 
-
 ## What is mean total number of steps taken per day?
+## ==================================================
+### create summary dataset
+```{r }
+  data1<- with(data, aggregate(steps, by=list(date), sum, na.rm =TRUE)) 
+  names(data1)<- c("date", "total.steps")
+```
 
+### Make a histogram of the total number of steps taken each day ## Calculate and report the mean and median of the total number of steps taken per day
+```{r}
+  barplot(data1$total.steps, names.arg= data1$date, col= "blue", border= "red", xlab= "date", ylab= "total steps", main= "total steps per day")
+  summary(data1$total.steps) 
+  abline(h= summary(data1$total.steps)[["Mean"]], col= "red", lty=5, lwd=3) 
+  abline(h= summary(data1$total.steps)[["Median"]], col= "green", lty=5, lwd=3) 
+  legend("topleft", legend=c("Mean", "Median"), lty= 5, lwd=3, col= c("red", "green"))
+```
 
 
 ## What is the average daily activity pattern?
