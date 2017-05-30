@@ -34,10 +34,10 @@ library(tidyr)
 ##############################################
 # Loading and preprocessing the data
 =====================================
-* capture source file variable	
-* capture url and download the zip file, if not already exists.
-* unzip the source data and get the contents of the zip file.
-* create data frame with read to csv
+* capture source file variable  
+* capture url and download the zip file, if not already exists.  
+* unzip the source data and get the contents of the zip file.  
+* create data frame with read to csv  
 
 
 
@@ -80,7 +80,7 @@ data<- read.csv("./data/activity.csv")
 	legend("topleft", legend=c("Mean", "Median"), lty= 5, lwd=3, col= c("red", "green"))
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
+![](PA1_template_files/figure-html/hist1-1.png)<!-- -->
 
 ##############################################
 # What is the average daily activity pattern?
@@ -103,7 +103,7 @@ data<- read.csv("./data/activity.csv")
 	abline(h= peak_value$avg.steps, v= peak_value$interval, col= "green", lty=5, lwd=1)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
+![](PA1_template_files/figure-html/plot2-1.png)<!-- -->
 	
 ##############################################
 # Imputing missing values
@@ -156,7 +156,7 @@ data<- read.csv("./data/activity.csv")
 	legend("topleft", legend=c("Mean- imputed", "Median- imputed"), lty=c(3,5), lwd=c(2,1), col= c("red", "green"))
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-9-1.png)<!-- -->
+![](PA1_template_files/figure-html/hist3a-1.png)<!-- -->
 
 ## Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?
 
@@ -172,7 +172,7 @@ data<- read.csv("./data/activity.csv")
 	legend("topright", legend=c("Mean", "Median"), lty= 5, lwd=3, col= c("red", "green"))
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-10-1.png)<!-- -->
+![](PA1_template_files/figure-html/hist3b-1.png)<!-- -->
 
 ##############################################
 # Are there differences in activity patterns between weekdays and weekends?
@@ -204,7 +204,7 @@ data<- read.csv("./data/activity.csv")
 	print(g)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-12-1.png)<!-- -->
+![](PA1_template_files/figure-html/plot6-1.png)<!-- -->
 
 
 
